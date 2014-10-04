@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'high_voltage/pages#show', id: 'homepage'
+  root to: 'todolists#index'
 
   resource :session, only: [:create]
 end
