@@ -1,4 +1,6 @@
 class TodolistsController < ApplicationController
+  before_filter :authenticate
+
   def index
     @todolists = Todolist.all
   end
