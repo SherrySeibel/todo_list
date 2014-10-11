@@ -2,7 +2,7 @@ class TodolistsController < ApplicationController
   before_filter :authenticate
 
   def index
-    @todolists = Todolist.all
+    @todolists = Todolist.where(email: session[:current_email])
   end
 
   def new
@@ -10,7 +10,7 @@ class TodolistsController < ApplicationController
   end
 
   def create
-    Todolist.create(todolist_params)
+    Todolist.create(todolist_params.merge(email: session[:current_email]))
     redirect_to todolists_path
   end
 
