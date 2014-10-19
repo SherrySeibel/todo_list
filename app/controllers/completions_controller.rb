@@ -1,12 +1,12 @@
 class CompletionsController < ApplicationController
   def create
-    todo.touch :completed_at
+    todolist.complete!
     redirect_to todolists_path
   end
 
   private
 
-  def todo
+  def todolist
     current_user.todolists.find(params[:todolist_id])
   end
 end

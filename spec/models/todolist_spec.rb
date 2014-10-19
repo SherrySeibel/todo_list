@@ -7,7 +7,7 @@ describe Todolist, "#completed?" do
     expect(todolist).to be_completed
   end
 
-  it "returns false if complete_at is nil" do
+  it "returns false if completed_at is nil" do
     todolist = Todolist.new(completed_at: nil)
 
     expect(todolist).to_not be_completed
