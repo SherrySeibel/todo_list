@@ -4,8 +4,11 @@
   <% @todolists.each do |todolist| %>
     <li class="<%= "completed" if todolist.completed? %>">
       <%= todolist.title %>
-      <%= button_to "Mark complete", todolist_completion_path(todolist) %>
+      <% if todolist.completed? %>
+        <%= button_to "Mark incomplete", todolist_completion_path(todolist), method: :delete %>
+      <% else %>
+        <%= button_to "Mark complete", todolist_completion_path(todolist) %>
+      <% end %>
     </li>
-
   <% end %>
 </ul>

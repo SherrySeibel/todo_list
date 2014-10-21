@@ -4,6 +4,11 @@ class CompletionsController < ApplicationController
     redirect_to todolists_path
   end
 
+  def destroy
+    todolist.mark_incomplete!
+    redirect_to todolists_path
+  end
+
   private
 
   def todolist
